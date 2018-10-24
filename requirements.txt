@@ -1,0 +1,8 @@
+connexion == 1.1.15
+python_dateutil == 2.6.0
+setuptools >= 28.0.0
+sqlalchemy>=1.1.14
+flask-marshmallow >= 0.8.0
+marshmallow>=2.13.6
+flask-sqlalchemy>=2.3.0
+marshmallow-sqlalchemy >= 0.14.1

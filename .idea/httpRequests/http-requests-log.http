@@ -1,0 +1,56 @@
+POST http://localhost:5000/api/element?=
+Accept: */*
+Cache-Control: no-cache
+
+{   "elementName": "SecondElement",   "id": 1,   "isEnd": true,   "isIndexed": true,   "isRoot": true,   "parentElementId": 0 }
+
+<> 2018-10-20T121050.415.txt
+
+###
+
+POST http://localhost:5000/api/element
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-20T120518.400.txt
+
+###
+
+DELETE http://localhost:5000/api/element/3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-20T101459.200.json
+
+###
+
+PUT http://localhost:5000/api/element/3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-20T101456.400.txt
+
+###
+
+POST http://localhost:5000/api/element/3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-20T101453.405.txt
+
+###
+
+GET http://localhost:5000/api/element/3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-20T101449.200.json
+
+###
+
+GET http://localhost:5000/api/element/3\
+Accept: */*
+Cache-Control: no-cache
+
+###
+

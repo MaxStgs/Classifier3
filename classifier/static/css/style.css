@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    width: 300px;
+    float: left;
+    border: 1px solid;
+}
+
+.menu-head {
+    background-color: darkgray;
+    height: 30px;
+}
+
+.menu-head p {
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.menu-head input {
+    background-color: aquamarine;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 2px;
+    left: 260px;
+}
+
+.menu-search input {
+    width: 100%;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.menu-list-elements {
+    background-color: antiquewhite;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.element a{
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+    background: url(../img/open.png) no-repeat 5px 11px;
+    height: 15px;
+}
+
+.element a.close {
+    background: url(../img/close.png) no-repeat 5px 11px;
+}
+
+.element p {
+    padding: 10px 0 10px 25px;
+    cursor: pointer;
+    /*background: url(../img/open.png) no-repeat 5px 11px;*/
+    /*display:inline-block;*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.element p.close {
+    /*background: url(../img/close.png) no-repeat 5px 11px;*/
+}
+
+.childElements {
+    margin-left: 15px;
+}
+
+.editor {
+    width:300px;
+    height: 300px;
+    background-color: burlywood;
+    float: left;
+    border: 1px solid;
+    margin-left: 15px;
+    display: none;
+}
+
+.editor-head {
+    background-color: darkgray;
+    height: 30px;
+}
+
+.editor-head p {
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.editor input[type="text"] {
+    font-size: 20px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.editor select {
+    width: 250px;
+}
+
+.editor .fields {
+    margin-left: 15px;
+}
+
+.editor input[type='button'] {
+    width: 80px;
+}

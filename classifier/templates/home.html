@@ -1,0 +1,54 @@
+<html>
+<head>
+    <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+<div class="menu">
+    <div class="menu-head">
+        <p>Группы объектов защиты</p>
+        <input id="menu-add-new-element" type="button" value="+">
+    </div>
+    <div class="menu-search">
+        <input type="text" title="Данные для поиска" placeholder="Деталька">
+    </div>
+    <div id="-1" class="menu-list-elements">
+    </div>
+</div>
+<div class="editor">
+    <div class="editor-head">
+        <p>Иерархия группы ХХХ</p>
+    </div>
+    <form>
+        <div class="editor-name">
+            <input type="text" id="elementName" name="elementName" title="Наименование" placeholder="Деталька">
+        </div>
+        <div class="fields">
+            <div>
+                <input type="checkbox" title="Корневой" id="isRoot" name="isRoot">
+                Является корневым элементов
+            </div>
+            <div>
+                Родительская группа
+                <select title="Выбор родительской группы" id="parentElementId" name="parentElementId">
+                    <option value="-1">Корень</option>
+                </select>
+            </div>
+            <div>
+                <input type="checkbox" title="Конечный" id="isEnd" name="isEnd">
+                Является конечным элементом
+            </div>
+            <div>
+                <input type="checkbox" title="Поиск и фильтры" id="isIndexed" name="isIndexed">
+                Является отдельным элементом поиска и фильтров
+            </div>
+            <input id="editor-save" type="button" value="Сохранить">
+            <input id="editor-cancel" type="button" value="Отмена">
+            <input id="editor-delete" type="button" value="Удалить">
+            <input type="hidden" name="id" id="editor-id">
+        </div>
+    </form>
+</div>
+</body>
+</html>

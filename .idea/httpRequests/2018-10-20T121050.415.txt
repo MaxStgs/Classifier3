@@ -1,0 +1,6 @@
+{
+  "detail": "Invalid Content-type (*/*; charset=UTF-8), expected JSON data",
+  "status": 415,
+  "title": "Unsupported Media Type",
+  "type": "about:blank"
+}

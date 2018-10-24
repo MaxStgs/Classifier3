@@ -1,0 +1,232 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "OIDC Service"
+host: "localhost:5000"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /api/elements:
+    get:
+      tags:
+      - "any"
+      description: "List of elements\n"
+      operationId: "list_elements"
+      parameters: []
+      responses:
+        200:
+          description: "List elements response\n"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ElementDetails"
+      x-swagger-router-controller: "classifier.controllers.any_controller"
+  /api/element/{elementId}:
+    get:
+      tags:
+      - "any"
+      description: "Get Element details\n"
+      operationId: "get_element"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "elementId"
+        in: "path"
+        description: "Unique identifier of Element\n"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "Element detauls reponse\n"
+          schema:
+            $ref: "#/definitions/ElementDetails"
+        404:
+          description: "Element not found\n"
+      x-swagger-router-controller: "classifier.controllers.any_controller"
+    put:
+      tags:
+      - "any"
+      operationId: "update_element"
+      parameters:
+      - name: "elementId"
+        in: "path"
+        description: "Unique identifier of Element\n"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "elementDetails"
+        description: "Update element details request\n"
+        required: true
+        schema:
+          $ref: "#/definitions/UpdateElementDetails"
+      responses:
+        200:
+          description: "Element updated\n"
+        404:
+          description: "Element not found\n"
+      x-swagger-router-controller: "classifier.controllers.any_controller"
+    delete:
+      tags:
+      - "any"
+      description: "Delete element by Id\n"
+      operationId: "delete_element"
+      parameters:
+      - name: "elementId"
+        in: "path"
+        description: "Unique identifier of Element\n"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "Element removed\n"
+        404:
+          description: "Element not found\n"
+      x-swagger-router-controller: "classifier.controllers.any_controller"
+  /api/element:
+    post:
+      tags:
+      - "any"
+      description: "Create Element\n"
+      operationId: "create_element"
+      parameters:
+      - in: "body"
+        name: "createElement"
+        description: "Create element request.\n"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateElement"
+      responses:
+        200:
+          description: "Element created\n"
+          schema:
+            $ref: "#/definitions/ElementDetails"
+      x-swagger-router-controller: "classifier.controllers.any_controller"
+definitions:
+  ElementDetails:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        description: "id"
+      elementName:
+        type: "string"
+        description: "it is his name"
+      isRoot:
+        type: "boolean"
+        description: "Is root?"
+      parentElementId:
+        type: "integer"
+      isEnd:
+        type: "boolean"
+        description: "Is end element?"
+      isIndexed:
+        type: "boolean"
+        description: "Can this field be indexed?"
+    example:
+      parentElementId: 6
+      isIndexed: true
+      isRoot: true
+      id: 0
+      isEnd: true
+      elementName: "elementName"
+  CreateElement:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        description: "id"
+      elementName:
+        type: "string"
+        description: "it is his name"
+      isRoot:
+        type: "boolean"
+        description: "Is root?"
+      parentElementId:
+        type: "integer"
+      isEnd:
+        type: "boolean"
+        description: "Is end element?"
+      isIndexed:
+        type: "boolean"
+        description: "Can this field be indexed?"
+    example:
+      parentElementId: 6
+      isIndexed: true
+      isRoot: true
+      id: 0
+      isEnd: true
+      elementName: "elementName"
+  UpdateElementDetails:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        description: "id"
+      elementName:
+        type: "string"
+        description: "it is his name"
+      isRoot:
+        type: "boolean"
+        description: "Is root?"
+      parentElementId:
+        type: "integer"
+      isEnd:
+        type: "boolean"
+        description: "Is end element?"
+      isIndexed:
+        type: "boolean"
+        description: "Can this field be indexed?"
+    example:
+      parentElementId: 6
+      isIndexed: true
+      isRoot: true
+      id: 0
+      isEnd: true
+      elementName: "elementName"
+parameters:
+  ElementId:
+    name: "elementId"
+    in: "path"
+    description: "Unique identifier of Element\n"
+    required: true
+    type: "integer"
+  ElementDetails:
+    in: "body"
+    name: "elementDetails"
+    description: "Update element details request\n"
+    required: true
+    schema:
+      $ref: "#/definitions/UpdateElementDetails"
+  CreateElement:
+    in: "body"
+    name: "createElement"
+    description: "Create element request.\n"
+    required: true
+    schema:
+      $ref: "#/definitions/CreateElement"
+responses:
+  ListElements:
+    description: "List elements response\n"
+    schema:
+      type: "array"
+      items:
+        $ref: "#/definitions/ElementDetails"
+  ElementDetails:
+    description: "Element detauls reponse\n"
+    schema:
+      $ref: "#/definitions/ElementDetails"
+  ElementRemoved:
+    description: "Element removed\n"
+  ElementNotFound:
+    description: "Element not found\n"
+  ElementUpdated:
+    description: "Element updated\n"
+  ElementCreated:
+    description: "Element created\n"
+    schema:
+      $ref: "#/definitions/ElementDetails"

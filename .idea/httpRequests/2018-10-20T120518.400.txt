@@ -1,0 +1,6 @@
+{
+  "detail": "None is not of type 'object'",
+  "status": 400,
+  "title": "Bad Request",
+  "type": "about:blank"
+}
